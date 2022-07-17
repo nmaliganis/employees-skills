@@ -8,7 +8,7 @@ namespace employees.skills.repository.Mappings.Employees
     {
         public EmployeeSkillMap()
         {
-            Table(@"employees-skills");
+            Table(@"employeesskills");
 
             Id(x => x.Id)
                 .Column("id")

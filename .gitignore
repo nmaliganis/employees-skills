@@ -14,3 +14,5 @@ back-end/api/employees.skills.repository/bin
 back-end/api/employees.skills.repository/obj
 .DS_Store
 back-end/api/employee.skill.contracts/bin
+.vs/employee.skill/v17/.suo
+.vs/employee.skill/config/applicationhost.config

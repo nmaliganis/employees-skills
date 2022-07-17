@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="wwwroot\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="5.0.2" />
     <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="5.0.1" />
     <PackageReference Include="AspNetCoreRateLimit" Version="3.0.5" />
@@ -52,10 +59,6 @@
     <ProjectReference Include="..\employee.skill.infrastructure\employee.skill.infrastructure.csproj" />
     <ProjectReference Include="..\employee.skill.services\employees.skills.services.csproj" />
     <ProjectReference Include="..\employees.skills.repository\employees.skills.repository.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <PropertyGroup> 
