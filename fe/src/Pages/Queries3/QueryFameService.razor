@@ -1,0 +1,51 @@
+@page "/query-fame-service"
+@using smarthotel.ui.Models.DTOs.Services
+@inherits QueryFameServiceViewModel
+
+<div class="dashboard">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card issue-types">
+                <h4 class="card-header">Fame Services By Year</h4>
+                <div class="card-body">
+                    <div class="row">
+                        <TelerikGrid Data="@ServiceState.Value.ServiceFameYearList" Pageable="true" PageSize="10" Height="600px"
+                                     Reorderable="true" Resizable="true" Groupable="false"
+                                     FilterMode="GridFilterMode.FilterRow">
+                            <GridColumns>
+                                <GridColumn Field="@(nameof(ServiceFameDto.Service))" Title="Service Name" Groupable="false" />
+                                <GridColumn Field="@(nameof(ServiceFameDto.Customer))" Title="Customer - Used"
+                                            Groupable="false" />
+                                <GridColumn Field="@(nameof(ServiceFameDto.AgeGroup))" Title="Age Groups"
+                                            Groupable="false" />
+                            </GridColumns>
+                        </TelerikGrid>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="card issue-types">
+            <h4 class="card-header">Fame Services  By Month</h4>
+            <div class="card-body">
+                <div class="row">
+                    <TelerikGrid Data="@ServiceState.Value.ServiceFameMonthList" Pageable="true" PageSize="10" Height="600px"
+                                 Reorderable="true" Resizable="true" Groupable="false"
+                                 FilterMode="GridFilterMode.FilterRow">
+                        <GridColumns>
+                            <GridColumn Field="@(nameof(ServiceFameDto.Service))" Title="Service Name" Groupable="false" />
+                            <GridColumn Field="@(nameof(ServiceFameDto.Customer))" Title="Customer - Used"
+                                        Groupable="false" />
+                            <GridColumn Field="@(nameof(ServiceFameDto.AgeGroup))" Title="Age Groups"
+                                        Groupable="false" />
+                        </GridColumns>
+                    </TelerikGrid>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

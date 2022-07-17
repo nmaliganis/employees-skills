@@ -1,0 +1,99 @@
+@inherits LayoutComponentBase
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+
+<TelerikRootComponent>
+	<div class="row">
+		<div id="top-bar" class="top-bar col-xs-12 bg-dark d-md-none"></div>
+		@if (IsNavAllowed())
+		{
+			<div id="nav"
+				 class="col-xs-3 bg-dark text-white py-5 k-vbox @( expandNavMenu ? "expand" : "" )">
+				<span id="nav-toggle" class="nav-toggle d-md-none" @onclick="@ToggleNavMenu">
+					<span class="k-icon k-i-hamburger"></span>
+				</span>
+				<h1 id="app-title">SH-360</h1>
+				<p id="app-subtitle">Powered by NTUA</p>
+				<hr />
+				<p class="h4 mt-5">Project</p>
+				<ul class="nav nav-pills flex-column">
+					<li class="nav-item" id="dashbaord">
+						<NavLink class="@(IsAtRoot() ? "nav-link active" : "nav-link")" href="dashboard">Dashboard</NavLink>
+					</li>
+					<li class="nav-item" id="history">
+						<NavLink class="nav-link" href="customers">Customers</NavLink>
+					</li>
+                    <li class="nav-item" id="videos">
+                        <NavLink class="nav-link" href="services">Services</NavLink>
+                    </li>
+                    <li class="nav-item" id="videos">
+                        <NavLink class="nav-link" href="covid">Covid-19 Queries</NavLink>
+                    </li>
+                    @*<li class="nav-item" id="videos">
+                        <NavLink class="nav-link" href="views">Queries-Views</NavLink>
+                    </li>*@                   
+                    <li class="nav-item" id="videos">
+                        <NavLink class="nav-link" href="query-fame-place">Fame Places</NavLink>
+                    </li>                
+                    <li class="nav-item" id="videos">
+                        <NavLink class="nav-link" href="query-freq-service">Freq Service</NavLink>
+                    </li>
+                    <li class="nav-item" id="videos">
+                        <NavLink class="nav-link" href="query-fame-service">Fame Service</NavLink>
+                    </li>
+				</ul>
+				<hr class="py-5" />
+				<div id="copy">
+					<p>
+						Copyright
+						&copy;
+						@DateTime.Now.Year,<br /><a href="https://github.com/db-ntua-2021/project.git">SmartHotel360</a>
+					</p>
+					<p>All Rights Reserved.</p>
+				</div>
+			</div>
+		}
+		<main class="col-xs p-4 py-5">
+			@Body
+		</main>
+	</div>
+</TelerikRootComponent>
+
+@code {
+	bool expandNavMenu = false;
+
+       void ToggleNavMenu()
+       {
+           expandNavMenu = !expandNavMenu;
+       }
+
+       bool IsNavAllowed()
+       {
+           string currUrl = navigationManager.Uri;
+           if (currUrl.EndsWith("signin"))
+           {
+               return false;
+           }
+           return true;
+       }
+
+       bool IsAtRoot()
+       {
+           string currUrl = navigationManager.Uri;
+           if (currUrl.EndsWith("/") || currUrl.EndsWith("/dashboard"))
+           {
+               return true;
+           }
+           return false;
+       }
+
+       protected override void OnInitialized()
+       {
+           navigationManager.LocationChanged += OnLocationChanges;
+       }
+
+       private void OnLocationChanges(object sender, LocationChangedEventArgs args)
+       {
+           expandNavMenu = false;
+           StateHasChanged();
+       }
+}

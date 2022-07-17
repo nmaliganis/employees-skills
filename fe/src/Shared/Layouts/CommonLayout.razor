@@ -1,0 +1,21 @@
+﻿@inherits LayoutComponentBase
+
+<div class="planner-wrapper" style="width: 100%; visibility:@(visible); opacity:@(opacity)">
+    <main>
+        @Body
+    </main>
+</div>
+
+
+@code{
+    private string visible { get; set; } = "visible";
+
+    private string opacity { get; set; } = "1";
+
+    public void OnCreate()
+    {
+        this.visible = "visible";
+        this.opacity = "1";
+    }
+}
+

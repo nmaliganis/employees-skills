@@ -20,19 +20,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "webui", "webui", "{07000C1D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{ABFC79D3-0450-4C18-9CEE-36DF8EF74CDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "employee.skill.infrastructure", "back-end\api\employee.skill.infrastructure\employee.skill.infrastructure.csproj", "{DE7E7AF4-CC73-46AB-AE70-23E0EF8491F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "employee.skill.infrastructure", "back-end\api\employee.skill.infrastructure\employee.skill.infrastructure.csproj", "{DE7E7AF4-CC73-46AB-AE70-23E0EF8491F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "employee.skill.dtos", "back-end\api\employee.skill.common.dtos\employee.skill.dtos.csproj", "{484EF9E5-9902-4CCE-9ED2-4DEBA0DDFE58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "employee.skill.dtos", "back-end\api\employee.skill.common.dtos\employee.skill.dtos.csproj", "{484EF9E5-9902-4CCE-9ED2-4DEBA0DDFE58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "employees.skills.model", "back-end\api\employees.skills.model\employees.skills.model.csproj", "{2D63916E-BD83-4966-9E48-2F25316EED15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "employees.skills.model", "back-end\api\employees.skills.model\employees.skills.model.csproj", "{2D63916E-BD83-4966-9E48-2F25316EED15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "employees.skills.repository", "back-end\api\employees.skills.repository\employees.skills.repository.csproj", "{CEB31DA9-D398-40ED-A071-F45B8B074DB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "employees.skills.repository", "back-end\api\employees.skills.repository\employees.skills.repository.csproj", "{CEB31DA9-D398-40ED-A071-F45B8B074DB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "employees.skills.contracts", "back-end\api\employee.skill.contracts\employees.skills.contracts.csproj", "{5BA3DAF1-46A0-4557-BB22-478C189D649F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "employees.skills.contracts", "back-end\api\employee.skill.contracts\employees.skills.contracts.csproj", "{5BA3DAF1-46A0-4557-BB22-478C189D649F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "employees.skills.services", "back-end\api\employee.skill.services\employees.skills.services.csproj", "{4A8B36C5-340B-4D7E-AA51-8AB49BD9FCC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "employees.skills.services", "back-end\api\employee.skill.services\employees.skills.services.csproj", "{4A8B36C5-340B-4D7E-AA51-8AB49BD9FCC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "employees.skills.api", "back-end\api\employee.skill.api\employees.skills.api.csproj", "{E2D70428-7CE6-4912-B75D-21B54B6C1EC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "employees.skills.api", "back-end\api\employee.skill.api\employees.skills.api.csproj", "{E2D70428-7CE6-4912-B75D-21B54B6C1EC9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "employee.skill.fe", "fe\src\employee.skill.fe.csproj", "{1B538CEE-8BFA-4B4A-8974-7B450299238E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,6 +70,10 @@ Global
 		{E2D70428-7CE6-4912-B75D-21B54B6C1EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2D70428-7CE6-4912-B75D-21B54B6C1EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2D70428-7CE6-4912-B75D-21B54B6C1EC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B538CEE-8BFA-4B4A-8974-7B450299238E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B538CEE-8BFA-4B4A-8974-7B450299238E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B538CEE-8BFA-4B4A-8974-7B450299238E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B538CEE-8BFA-4B4A-8974-7B450299238E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,6 +90,7 @@ Global
 		{5BA3DAF1-46A0-4557-BB22-478C189D649F} = {E5B69089-C776-41B8-BB4B-49BCAE531BC8}
 		{4A8B36C5-340B-4D7E-AA51-8AB49BD9FCC1} = {E5B69089-C776-41B8-BB4B-49BCAE531BC8}
 		{E2D70428-7CE6-4912-B75D-21B54B6C1EC9} = {E5B69089-C776-41B8-BB4B-49BCAE531BC8}
+		{1B538CEE-8BFA-4B4A-8974-7B450299238E} = {07000C1D-57B7-4BBA-B090-8723AA2C18DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C3DD7EB-6936-4E62-BBA6-0655223F0203}
