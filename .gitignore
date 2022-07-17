@@ -1,0 +1,16 @@
+.idea/.idea.employee.skill/.idea
+back-end/api/employee.skill.api/bin
+back-end/api/employee.skill.api/obj
+back-end/api/employee.skill.common.dtos/bin
+back-end/api/employee.skill.common.dtos/obj
+back-end/api/employee.skill.contracts/obj
+back-end/api/employee.skill.infrastructure/obj
+back-end/api/employee.skill.infrastructure/bin
+back-end/api/employee.skill.services/bin
+back-end/api/employee.skill.services/obj
+back-end/api/employees.skills.model/bin
+back-end/api/employees.skills.model/obj
+back-end/api/employees.skills.repository/bin
+back-end/api/employees.skills.repository/obj
+.DS_Store
+back-end/api/employee.skill.contracts/bin

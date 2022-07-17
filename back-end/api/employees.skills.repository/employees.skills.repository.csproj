@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackageId>employees.skills.repository</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentNHibernate" Version="3.1.0" />
+    <PackageReference Include="NHibernate" Version="5.3.11" />
+    <PackageReference Include="nhibernate.postgresql.json" Version="1.1.2" />
+    <PackageReference Include="NHibernate.Spatial.PostGis" Version="5.3.0" />
+    <PackageReference Include="Npgsql" Version="5.0.12" />
+    <PackageReference Include="Npgsql.Json.NET" Version="5.0.12" />
+    <PackageReference Include="Serilog" Version="2.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\employee.skill.infrastructure\employee.skill.infrastructure.csproj" />
+    <ProjectReference Include="..\employees.skills.model\employees.skills.model.csproj" />
+  </ItemGroup>
+
+</Project>

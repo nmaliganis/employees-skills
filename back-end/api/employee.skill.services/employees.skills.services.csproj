@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackageId>employees.skills.services</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog" Version="2.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\employee.skill.contracts\employees.skills.contracts.csproj" />
+    <ProjectReference Include="..\employees.skills.repository\employees.skills.repository.csproj" />
+  </ItemGroup>
+
+</Project>

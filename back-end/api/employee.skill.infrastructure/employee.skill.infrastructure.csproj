@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>employee.skill.common.infrastructure</AssemblyName>
+    <RootNamespace>employee.skill.common.infrastructure</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Exceptions\Api\**" />
+    <Compile Remove="Exceptions\Controllers\**" />
+    <EmbeddedResource Remove="Exceptions\Api\**" />
+    <EmbeddedResource Remove="Exceptions\Controllers\**" />
+    <None Remove="Exceptions\Api\**" />
+    <None Remove="Exceptions\Controllers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Exceptions\Domain\ValueObjectIsInvalidException.cs~RF5a4f62.TMP" />
+    <None Remove="Exceptions\Repositories\Vehicles\MultipleVehiclesForAnIdException.cs~RF6539b2.TMP" />
+    <None Remove="Helpers\ResourceUriType.cs~RF66dc36.TMP" />
+    <None Remove="PropertyMappings\g4krhj50.im0~" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.1.1" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.12.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.18" />
+  </ItemGroup>
+
+</Project>

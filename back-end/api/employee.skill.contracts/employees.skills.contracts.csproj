@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackageId>employees.skills.contracts</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="V1\IUsersControllerDependencyBlock.cs~RF145c641.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\employee.skill.common.dtos\employee.skill.dtos.csproj" />
+    <ProjectReference Include="..\employee.skill.infrastructure\employee.skill.infrastructure.csproj" />
+    <ProjectReference Include="..\employees.skills.model\employees.skills.model.csproj" />
+  </ItemGroup>
+
+</Project>

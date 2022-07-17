@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <UserSecretsId>81cd05f4-14e1-42c9-b4b4-472ae202b9bb</UserSecretsId>
+    <PackageId>employees.skills.api</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="5.0.2" />
+    <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="5.0.1" />
+    <PackageReference Include="AspNetCoreRateLimit" Version="3.0.5" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
+    <PackageReference Include="AutoMapper" Version="8.1.1" />
+    <PackageReference Include="FluentNHibernate" Version="3.1.0" />
+    <PackageReference Include="FluentValidation" Version="10.4.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.4" />
+    <PackageReference Include="GeoAPI" Version="1.7.5" />
+    <PackageReference Include="M2MqttDotnetCore" Version="1.1.0" />
+    <PackageReference Include="Marvin.Cache.Headers" Version="5.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Azure.Management.Media" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Azure.SignalR" Version="1.18.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Rest.ClientRuntime.Azure.Authentication" Version="2.4.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
+    <PackageReference Include="NHibernate" Version="5.3.12" />
+    <PackageReference Include="NHibernate.Caches.RtMemoryCache" Version="5.7.0" />
+    <PackageReference Include="NHibernate.Spatial" Version="5.3.0" />
+    <PackageReference Include="NHibernate.Spatial.PostGis" Version="5.3.0" />
+    <PackageReference Include="NHibernateProfiler" Version="6.0.6032" />
+    <PackageReference Include="Npgsql" Version="5.0.12" />
+    <PackageReference Include="Npgsql.Json.NET" Version="5.0.12" />
+    <PackageReference Include="Quartz" Version="3.4.0" />
+    <PackageReference Include="RestSharp" Version="106.13.0" />
+    <PackageReference Include="Serilog" Version="2.11.0" />
+    <PackageReference Include="Serilog.Enrichers.AspnetcoreHttpcontext" Version="1.1.0" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.3.0" />
+    <PackageReference Include="Serilog.Sinks.Debug" Version="2.0.0" />
+    <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\employee.skill.contracts\employees.skills.contracts.csproj" />
+    <ProjectReference Include="..\employee.skill.infrastructure\employee.skill.infrastructure.csproj" />
+    <ProjectReference Include="..\employee.skill.services\employees.skills.services.csproj" />
+    <ProjectReference Include="..\employees.skills.repository\employees.skills.repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <PropertyGroup> 
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'employees.skills.api' " />
+</Project>

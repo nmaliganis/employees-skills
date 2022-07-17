@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackageId>employees.skills.model</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GeoAPI" Version="1.7.5" />
+    <PackageReference Include="NetTopologySuite.IO.GeoJSON" Version="1.15.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\employee.skill.common.dtos\employee.skill.dtos.csproj" />
+    <ProjectReference Include="..\employee.skill.infrastructure\employee.skill.infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
