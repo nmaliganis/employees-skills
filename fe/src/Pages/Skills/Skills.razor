@@ -3,6 +3,65 @@
 @using employee.skill.fe.Models.DTOs.Skills
 @inherits SkillsViewModel
 
+<TelerikWindow Modal="true" @bind-Visible="@ManipulationSkillIsVisible">
+    <WindowTitle>
+        <strong>@ActionText Skill</strong>
+    </WindowTitle>
+    <WindowContent>
+        <TelerikNotification @ref="NotificationSaveOrUpdateComponent"
+                             Class="toastr-notification"
+                             VerticalPosition="NotificationVerticalPosition.Top"
+                             HorizontalPosition="NotificationHorizontalPosition.Center">
+        </TelerikNotification>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <TelerikForm Model="@SkillToBeManipulated"
+                                         Width="800px"
+                                         Orientation="FormOrientation.Vertical"
+                                         OnInvalidSubmit="@HandleInValidSkillSaveOrUpdate"
+                                         OnValidSubmit="@HandleValidSkillSaveOrUpdate">
+                                <FormValidation>
+                                    <DataAnnotationsValidator />
+                                </FormValidation>
+                                <FormButtons>
+                                    <TelerikButton Hidden="false"
+                                                   ButtonType="@ButtonType.Submit"
+                                                   Primary="true">
+                                        @ActionText
+                                    </TelerikButton>
+                                    <TelerikButton Hidden="false"
+                                                   OnClick="OnCancelClickHandler"
+                                                   ButtonType="@ButtonType.Button"
+                                                   Primary="false">
+                                        Cancel
+                                    </TelerikButton>
+                                </FormButtons>
+                                <FormItems>
+                                    <FormGroup LabelText="Skill Information" Columns="2"
+                                               ColumnSpacing="40px">
+                                    </FormGroup>
+                                </FormItems>
+                            </TelerikForm>
+                        </div>
+                    </div>
+                </div>
+                @if (ValidSubmit)
+                {
+
+                }
+            </div>
+        </div>
+    </WindowContent>
+    <WindowActions>
+        <WindowAction Name="Minimize" />
+        <WindowAction Name="Maximize" />
+        <WindowAction OnClick="OnCancelClickHandler" Name="Close" />
+    </WindowActions>
+</TelerikWindow>
+
 <div class="videos">
     <div class="row">
         <div class="col-md-12">

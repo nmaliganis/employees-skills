@@ -20,6 +20,32 @@ namespace employee.skill.fe.Pages.Skills
     [Inject] public NavigationManager NavigationManager { get; set; }
     [Inject] public IConfiguration Configuration { get; set; }
 
+    protected TelerikNotification NotificationSaveOrUpdateComponent { get; set; }
+    protected bool ManipulationSkillIsVisible { get; set; } = false;
+    protected SkillDto SkillToBeManipulated { get; set; } = new SkillDto();
+    protected bool ValidSubmit { get; set; } = false;
+    protected string ActionText { get; set; } = "Add";
+
+    protected void HandleValidSkillSaveOrUpdate() {
+      this.ValidSubmit = true;
+    }
+
+    protected void HandleInValidSkillSaveOrUpdate() {
+      //Todo : Toastr For Invalid Action
+    }
+    
+    protected void OnCancelClickHandler() {
+      if (this.ManipulationSkillIsVisible) {
+        if (this.ActionText == "Add") {
+          this.SkillToBeManipulated = new SkillDto();
+        }
+
+        this.ManipulationSkillIsVisible = false;
+      }
+
+      this.StateHasChanged();
+    }
+    
     #region Initialization
 
     protected override Task OnInitializedAsync()
@@ -94,21 +120,20 @@ namespace employee.skill.fe.Pages.Skills
 
     [Parameter] public bool SaveBtnEnabled { get; set; } = true;
 
-    protected async Task OnAddSkillClickHandler()
-    {
-      NavigationManager.NavigateTo($"Skill-details/{Guid.Empty}");
-      StateHasChanged();
-    }
-    protected async Task OnEditSkillClickHandler()
-    {
-      NavigationManager.NavigateTo($"Skill-details/{SelectedItems?.FirstOrDefault()?.Id}");
-      StateHasChanged();
+    protected async Task OnAddSkillClickHandler() {
+      this.ActionText = "Add";
+      this.ManipulationSkillIsVisible = true;
+      this.SkillToBeManipulated = new SkillDto();
     }
 
-    protected async Task OnDeleteSkillClickHandler()
-    {
-      NavigationManager.NavigateTo($"Skill-details/{Guid.Empty}");
-      StateHasChanged();
+    protected async Task OnEditSkillClickHandler() {
+      this.ActionText = "Edit";
+      this.ManipulationSkillIsVisible = true;
+      SkillToBeManipulated = SelectedSkillItem;
+    }
+
+    protected async Task OnDeleteSkillClickHandler() {
+
     }
 
     #endregion
