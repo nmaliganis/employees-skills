@@ -8,9 +8,9 @@ namespace employee.skill.fe.Store.Employees.Actions.UpdateEmployee
     public Guid EmployeeToBeUpdateId { get; private set; }
     public EmployeeForModificationDto EmployeeForModificationDto { get; private set; }
 
-    public UpdateEmployeeAction(Guid EmployeeToBeUpdateId, EmployeeForModificationDto employeeForModificationDto)
+    public UpdateEmployeeAction(Guid employeeToBeUpdateId, EmployeeForModificationDto employeeForModificationDto)
     {
-      EmployeeToBeUpdateId = EmployeeToBeUpdateId;
+      EmployeeToBeUpdateId = employeeToBeUpdateId;
       EmployeeForModificationDto = employeeForModificationDto;
     }
   }

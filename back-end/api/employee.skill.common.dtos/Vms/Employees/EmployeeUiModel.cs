@@ -18,6 +18,8 @@ namespace employee.skill.common.dtos.Vms.Employees
         [Required] [Editable(true)]
         public DateTime CreatedDate { get; set; }
         [Required] [Editable(true)]
+        public DateTime HiredDate { get; set; }
+        [Required] [Editable(true)]
         public bool Active { get; set; }
     }
 }

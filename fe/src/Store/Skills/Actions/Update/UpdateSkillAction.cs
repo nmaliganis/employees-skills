@@ -8,10 +8,10 @@ namespace employee.skill.fe.Store.Skills.Actions.Update
     public Guid SkillToBeUpdateId { get; private set; }
     public SkillForModificationDto SkillForModificationDto { get; private set; }
 
-    public UpdateSkillAction(Guid SkillToBeUpdateId, SkillForModificationDto SkillForModificationDto)
+    public UpdateSkillAction(Guid skillToBeUpdateId, SkillForModificationDto skillForModificationDto)
     {
-      SkillToBeUpdateId = SkillToBeUpdateId;
-      SkillForModificationDto = SkillForModificationDto;
+      SkillToBeUpdateId = skillToBeUpdateId;
+      SkillForModificationDto = skillForModificationDto;
     }
   }
 }

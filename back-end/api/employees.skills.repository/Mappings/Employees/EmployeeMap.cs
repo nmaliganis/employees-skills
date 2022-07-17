@@ -68,6 +68,14 @@ namespace employees.skills.repository.Mappings.Employees
                 .Not.Nullable()
                 ;
             
+            Map(x => x.HiredDate)
+                .Column("hired_date")
+                .CustomType("DateTime")
+                .Access.Property()
+                .Generated.Never()
+                .Not.Nullable()
+                ;
+            
             HasMany<EmployeeSkill>(x => x.Skills)
                 .Access.Property()
                 .AsSet()

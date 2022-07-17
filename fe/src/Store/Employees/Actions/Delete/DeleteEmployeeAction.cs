@@ -6,9 +6,9 @@ namespace employee.skill.fe.Store.Employees.Actions.Delete
   {
     public Guid EmployeeToBeDeletedId { get; private set; }
 
-    public DeleteEmployeeAction(Guid EmployeeToBeDeletedId)
+    public DeleteEmployeeAction(Guid employeeToBeDeletedId)
     {
-      EmployeeToBeDeletedId = EmployeeToBeDeletedId;
+      EmployeeToBeDeletedId = employeeToBeDeletedId;
     }
   }
 }

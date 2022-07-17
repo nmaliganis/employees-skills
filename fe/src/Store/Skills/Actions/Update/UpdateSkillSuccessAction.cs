@@ -7,10 +7,10 @@ namespace employee.skill.fe.Store.Skills.Actions.Update
     public SkillDto SkillHaveBeenUpdated { get; private set; }
     public string SkillUpdateStatus { get; private set; }
 
-    public UpdateSkillSuccessAction(SkillDto SkillHaveBeenUpdated, string SkillUpdateStatus)
+    public UpdateSkillSuccessAction(SkillDto skillHaveBeenUpdated, string skillUpdateStatus)
     {
-      SkillHaveBeenUpdated = SkillHaveBeenUpdated;
-      SkillUpdateStatus = SkillUpdateStatus;
+      SkillHaveBeenUpdated = skillHaveBeenUpdated;
+      SkillUpdateStatus = skillUpdateStatus;
     }
   }
 }

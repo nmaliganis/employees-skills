@@ -6,9 +6,9 @@ namespace employee.skill.fe.Store.Skills.Actions.Fetch
   {
     public SkillDto SkillToHaveBeenFetched { get; private set; }
 
-    public FetchSkillSuccessAction(SkillDto SkillToHaveBeenFetched)
+    public FetchSkillSuccessAction(SkillDto skillToHaveBeenFetched)
     {
-      SkillToHaveBeenFetched  = SkillToHaveBeenFetched;
+      SkillToHaveBeenFetched  = skillToHaveBeenFetched;
     }
   }
 }

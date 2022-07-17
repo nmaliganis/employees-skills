@@ -34,7 +34,7 @@ namespace employee.skill.fe.ServiceAgents.Impls.Employees
     {
       List<EmployeeDto> result = new List<EmployeeDto>();
 
-      var client = new RestClient($"{BaseAddr}/api/Employees");
+      var client = new RestClient($"{BaseAddr}/api/{Version}/employees");
       var request = new RestRequest(Method.GET);
 
       request.AddHeader("Content-Type", "application/json");
@@ -65,7 +65,7 @@ namespace employee.skill.fe.ServiceAgents.Impls.Employees
     {
       EmployeeDto result = new EmployeeDto();
 
-      var client = new RestClient($"{BaseAddr}/api/Employees/{id}");
+      var client = new RestClient($"{BaseAddr}/api/{Version}/employees/{id}");
       var request = new RestRequest(Method.GET);
 
       request.AddHeader("Content-Type", "application/json");
@@ -100,7 +100,7 @@ namespace employee.skill.fe.ServiceAgents.Impls.Employees
     {
       int result = 0;
 
-      var client = new RestClient($"{BaseAddr}/api/Employees/count");
+      var client = new RestClient($"{BaseAddr}/api/{Version}/employees/count");
       var request = new RestRequest(Method.GET);
 
       request.AddHeader("Content-Type", "application/json");
@@ -135,7 +135,7 @@ namespace employee.skill.fe.ServiceAgents.Impls.Employees
     {
       EmployeeDto result = new EmployeeDto();
 
-      var client = new RestClient($"{BaseAddr}/api/Employees");
+      var client = new RestClient($"{BaseAddr}/api/{Version}/employees");
       var request = new RestRequest("", Method.POST);
 
       request.AddJsonBody(employeeToBeCreated);
@@ -155,12 +155,12 @@ namespace employee.skill.fe.ServiceAgents.Impls.Employees
       return result;
     }
 
-    public async Task<EmployeeDto> UpdateEmployee(Guid EmployeeIdToBeUpdated,
+    public async Task<EmployeeDto> UpdateEmployee(Guid employeeIdToBeUpdated,
       EmployeeForModificationDto employeeToBeUpdated)
     {
       EmployeeDto result = new EmployeeDto();
 
-      var client = new RestClient($"{BaseAddr}/api/Employees/{EmployeeIdToBeUpdated}");
+      var client = new RestClient($"{BaseAddr}/api/{Version}/employees/{employeeIdToBeUpdated}");
       var request = new RestRequest("", Method.PUT);
 
       request.AddJsonBody(employeeToBeUpdated);
@@ -180,11 +180,11 @@ namespace employee.skill.fe.ServiceAgents.Impls.Employees
       return result;
     }
 
-    public async Task<EmployeeDto> DeleteEmployee(Guid EmployeeIdToBeDeleted)
+    public async Task<EmployeeDto> DeleteEmployee(Guid employeeIdToBeDeleted)
     {
       EmployeeDto result = new EmployeeDto();
 
-      var client = new RestClient($"{BaseAddr}/api/Employees/{EmployeeIdToBeDeleted}");
+      var client = new RestClient($"{BaseAddr}/api/{Version}/employees/{employeeIdToBeDeleted}");
       var request = new RestRequest("", Method.DELETE);
 
       request.AddHeader("Content-Type", "application/json");
@@ -198,68 +198,6 @@ namespace employee.skill.fe.ServiceAgents.Impls.Employees
       {
         EmployeeErrorModel resultError = JsonConvert.DeserializeObject<EmployeeErrorModel>(response.Content);
         throw new ServiceHttpRequestException<string>(response.StatusCode, resultError.errorMessage);
-      }
-
-      return result;
-    }
-
-    public async Task<int> FetchAvailableEmployeesCount(string authorizationToken = null)
-    {
-      int result = 0;
-
-      try
-      {
-        var client = new RestClient($"{BaseAddr}/api/Employees/count-available");
-        var request = new RestRequest(Method.GET);
-
-        request.AddHeader("Content-Type", "application/json");
-        request.AddHeader("Authorization", $"bearer {authorizationToken}");
-
-        var response = await client.ExecuteAsync(request);
-        if (response.IsSuccessful)
-        {
-          result = JsonConvert.DeserializeObject<int>(response.Content);
-        }
-        else if (response.StatusCode == HttpStatusCode.BadRequest)
-        {
-          EmployeeErrorModel resultError = JsonConvert.DeserializeObject<EmployeeErrorModel>(response.Content);
-          throw new ServiceHttpRequestException<string>(response.StatusCode, resultError.errorMessage);
-        }
-      }
-      catch (Exception e)
-      {
-        throw new ServiceHttpRequestException<string>(HttpStatusCode.Conflict, e.Message);
-      }
-
-      return result;
-    }
-
-    public async Task<int> FetchEmployeesInUseCount(string authorizationToken = null)
-    {
-      int result = 0;
-
-      try
-      {
-        var client = new RestClient($"{BaseAddr}/api/Employees/count-use");
-        var request = new RestRequest(Method.GET);
-
-        request.AddHeader("Content-Type", "application/json");
-        request.AddHeader("Authorization", $"bearer {authorizationToken}");
-
-        var response = await client.ExecuteAsync(request);
-        if (response.IsSuccessful)
-        {
-          result = JsonConvert.DeserializeObject<int>(response.Content);
-        }
-        else if (response.StatusCode == HttpStatusCode.BadRequest)
-        {
-          EmployeeErrorModel resultError = JsonConvert.DeserializeObject<EmployeeErrorModel>(response.Content);
-          throw new ServiceHttpRequestException<string>(response.StatusCode, resultError.errorMessage);
-        }
-      }
-      catch (Exception e)
-      {
-        throw new ServiceHttpRequestException<string>(HttpStatusCode.Conflict, e.Message);
       }
 
       return result;

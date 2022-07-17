@@ -24,6 +24,7 @@ namespace employees.skills.model.Employees
         public virtual string Firstname { get; set; }
         public virtual string Lastname { get; set; }
         public virtual string Email { get; set; }
+        public virtual DateTime HiredDate { get; set; }
         public virtual DateTime CreatedDate { get; set; }
         public virtual bool Active { get; set; }
         public virtual ISet<EmployeeSkill> Skills { get; set; }
@@ -43,6 +44,11 @@ namespace employees.skills.model.Employees
         {
             this.Skills.Add(employeeSkillToBeInjected);
             employeeSkillToBeInjected.Employee = this;
+        }
+
+        public virtual void SoftDeleted()
+        {
+            this.Active = false;
         }
     }
 }

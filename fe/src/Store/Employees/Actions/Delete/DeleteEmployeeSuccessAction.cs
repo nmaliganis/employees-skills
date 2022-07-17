@@ -7,10 +7,10 @@ namespace employee.skill.fe.Store.Employees.Actions.Delete
     public Guid EmployeeHaveBeenDeletedId { get; private set; }
     public string EmployeeDeletionStatus { get; private set; }
 
-    public DeleteEmployeeSuccessAction(Guid EmployeeHaveBeenDeletedId, string EmployeeDeletionStatus)
+    public DeleteEmployeeSuccessAction(Guid employeeHaveBeenDeletedId, string employeeDeletionStatus)
     {
-      EmployeeHaveBeenDeletedId = EmployeeHaveBeenDeletedId;
-      EmployeeDeletionStatus = EmployeeDeletionStatus;
+      EmployeeHaveBeenDeletedId = employeeHaveBeenDeletedId;
+      EmployeeDeletionStatus = employeeDeletionStatus;
     }
   }
 }

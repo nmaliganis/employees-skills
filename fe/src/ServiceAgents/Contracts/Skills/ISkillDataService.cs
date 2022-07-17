@@ -9,8 +9,6 @@ namespace employee.skill.fe.ServiceAgents.Contracts.Skills
     {
         Task<List<SkillDto>> GetSkillList(string authorizationToken = null);
         Task<SkillDto> GetSkill(Guid actionSkillId);
-        Task<int> GetTotalSkillCount();
-
         Task<SkillDto> CreateSkill(SkillForCreationDto SkillToBeCreated);
         Task<SkillDto> UpdateSkill(Guid SkillIdToBeUpdated, SkillForModificationDto SkillToBeUpdated);
         Task<SkillDto> DeleteSkill(Guid SkillIdToBeDeleted);

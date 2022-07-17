@@ -6,6 +6,6 @@ namespace employees.Employees.contracts.Employees;
 
 public interface IDeleteEmployeeProcessor
 {
-    Task DeleteEmployeeAsync(Guid employeeToBeDeletedId);
+    Task<EmployeeDeletionUiModel> HardDeleteEmployeeAsync(Guid employeeToBeDeletedId);
     Task<EmployeeDeletionUiModel> SoftDeleteEmployeeAsync(Guid employeeToBeDeletedId);
 }

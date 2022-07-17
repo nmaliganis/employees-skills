@@ -6,9 +6,9 @@ namespace employee.skill.fe.Store.Skills.Actions.Fetch
   {
     public Guid SkillToBeFetchedId { get; private set; }
 
-    public FetchSkillAction(Guid SkillToBeFetchedId)
+    public FetchSkillAction(Guid skillToBeFetchedId)
     {
-      SkillToBeFetchedId = SkillToBeFetchedId;
+      SkillToBeFetchedId = skillToBeFetchedId;
     }
   }
 }

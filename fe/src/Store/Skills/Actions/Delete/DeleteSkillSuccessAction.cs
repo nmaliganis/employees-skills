@@ -7,10 +7,10 @@ namespace employee.skill.fe.Store.Skills.Actions.Delete
     public Guid SkillHaveBeenDeletedId { get; private set; }
     public string SkillDeletionStatus { get; private set; }
 
-    public DeleteSkillSuccessAction(Guid SkillHaveBeenDeletedId, string SkillDeletionStatus)
+    public DeleteSkillSuccessAction(Guid skillHaveBeenDeletedId, string skillDeletionStatus)
     {
-      SkillHaveBeenDeletedId = SkillHaveBeenDeletedId;
-      SkillDeletionStatus = SkillDeletionStatus;
+      SkillHaveBeenDeletedId = skillHaveBeenDeletedId;
+      SkillDeletionStatus = skillDeletionStatus;
     }
   }
 }

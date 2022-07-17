@@ -7,9 +7,9 @@ namespace employee.skill.fe.Store.Employees.Actions.FetchEmployees
   {
     public List<EmployeeDto> EmployeeList { get; private set; }
 
-    public FetchEmployeeListSuccessAction(List<EmployeeDto> EmployeeList)
+    public FetchEmployeeListSuccessAction(List<EmployeeDto> employeeList)
     {
-      EmployeeList  = EmployeeList;
+      EmployeeList  = employeeList;
     }
   }
 }

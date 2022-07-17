@@ -18,8 +18,8 @@ namespace employee.skill.fe.Store.Employees.Effects.FetchEmployees
     {
       try
       {
-        var Employees = await EmployeeDataService.GetEmployeeList();
-        dispatcher.Dispatch(new FetchEmployeeListSuccessAction(Employees));
+        var employees = await EmployeeDataService.GetEmployeeList();
+        dispatcher.Dispatch(new FetchEmployeeListSuccessAction(employees));
       }
       catch (Exception e)
       {
