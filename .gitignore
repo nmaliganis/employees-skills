@@ -16,3 +16,6 @@ back-end/api/employees.skills.repository/obj
 back-end/api/employee.skill.contracts/bin
 .vs/employee.skill/v17/.suo
 .vs/employee.skill/config/applicationhost.config
+*.txt
+fe/src/bin
+fe/src/obj

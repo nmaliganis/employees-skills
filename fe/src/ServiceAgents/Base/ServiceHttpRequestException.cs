@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace smarthotel.ui.ServiceAgents.Base
+namespace employee.skill.fe.ServiceAgents.Base
 {
   public class ServiceHttpRequestException<T> : Exception
   {

@@ -1,23 +1,18 @@
 using System.Net.Http;
 using Blazored.LocalStorage;
+using employee.skill.fe.ServiceAgents.Contracts.Employees;
+using employee.skill.fe.ServiceAgents.Contracts.Skills;
+using employee.skill.fe.ServiceAgents.Impls.Employees;
+using employee.skill.fe.ServiceAgents.Impls.Skills;
 using Fluxor;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using smarthotel.ui.ServiceAgents.Contracts.Customers;
-using smarthotel.ui.ServiceAgents.Contracts.Services;
-using smarthotel.ui.ServiceAgents.Contracts.Spaces;
-using smarthotel.ui.ServiceAgents.Contracts.Visits;
-using smarthotel.ui.ServiceAgents.Impls.Customers;
-using smarthotel.ui.ServiceAgents.Impls.Services;
-using smarthotel.ui.ServiceAgents.Impls.Spaces;
-using smarthotel.ui.ServiceAgents.Impls.Visits;
-using Syncfusion.Blazor;
 using Westwind.AspNetCore.LiveReload;
 
-namespace smarthotel.ui
+namespace employee.skill.fe
 {
   public class Startup
   {
@@ -33,7 +28,6 @@ namespace smarthotel.ui
       services.AddRazorPages();
       services.AddServerSideBlazor();
       services.AddTelerikBlazor();
-      services.AddSyncfusionBlazor();
 
       services.AddLiveReload(config =>
       {
@@ -52,17 +46,8 @@ namespace smarthotel.ui
       services.AddBlazoredLocalStorage(config =>
         config.JsonSerializerOptions.WriteIndented = true);
 
-      services.AddScoped<HttpClient>(s =>
-      {
-        var remoteUrl = Configuration["env"] == "prod" ? Configuration["RemoteUrl"] : Configuration["LocalUrl"];
-        var client = new HttpClient {BaseAddress = new System.Uri(remoteUrl)};
-        return client;
-      });
-
-      services.AddScoped<ICustomerDataService, CustomerDataService>();
-      services.AddScoped<IServiceDataService, ServiceDataService>();
-      services.AddScoped<ISpaceDataService, SpaceDataService>();
-      services.AddScoped<IVisitDataService, VisitDataService>();
+      services.AddScoped<IEmployeeDataService, EmployeeDataService>();
+      services.AddScoped<ISkillDataService, SkillDataService>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

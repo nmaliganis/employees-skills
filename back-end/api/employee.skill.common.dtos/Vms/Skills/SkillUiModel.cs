@@ -22,9 +22,6 @@ namespace employee.skill.common.dtos.Vms.Skills
         public DateTime CreatedDate { get; set; }
         [Required]
         [Editable(true)]
-        public DateTime ModifiedDate { get; set; }
-        [Required]
-        [Editable(true)]
         public bool Active { get; set; }
     }
 }

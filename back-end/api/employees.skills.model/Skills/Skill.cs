@@ -36,5 +36,10 @@ namespace employees.skills.model.Skills
         {
             
         }
+
+        public virtual void SoftDeleted()
+        {
+            this.Active = false;
+        }
     }
 }

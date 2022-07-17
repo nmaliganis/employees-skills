@@ -14,7 +14,7 @@ namespace employees.skills.services.Skills;
 public class UpdateSkillProcessor : IUpdateSkillProcessor
 {
     private readonly IUnitOfWork _uOf;
-    private readonly ISkillRepository _SkillRepository;
+    private readonly ISkillRepository _skillRepository;
     private readonly IAutoMapper _autoMapper;
 
     public UpdateSkillProcessor(IUnitOfWork uOf,
@@ -22,7 +22,7 @@ public class UpdateSkillProcessor : IUpdateSkillProcessor
         ISkillRepository skillRepository)
     {
         this._uOf = uOf;
-        this._SkillRepository = skillRepository;
+        this._skillRepository = skillRepository;
         this._autoMapper = autoMapper;
     }
 
@@ -38,7 +38,7 @@ public class UpdateSkillProcessor : IUpdateSkillProcessor
 
     private void MakeSkillPersistent(Skill skillToBeMadePersistence)
     {
-        this._SkillRepository.Save(skillToBeMadePersistence);
+        this._skillRepository.Save(skillToBeMadePersistence);
         this._uOf.Commit();
     }
 

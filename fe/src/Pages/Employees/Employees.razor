@@ -1,0 +1,42 @@
+@page "/employees"
+@using employee.skill.fe.Models.DTOs.Employees
+@inherits EmployeesViewModel
+
+<div class="videos">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h3 class="card-header">Employees</h3>
+                <div class="card-body">
+                    <div class="row">
+                         <div class="form-group"> 
+                             <TelerikButton Enabled="@SaveBtnEnabled" Primary="true" Icon="add" 
+                                 OnClick="@OnAddEmployeeClickHandler">Add</TelerikButton> 
+                             <TelerikButton Icon="edit" OnClick="@OnEditEmployeeClickHandler">Edit</TelerikButton> 
+                             <TelerikButton Icon="delete" Class="dangerButton" OnClick="@OnDeleteEmployeeClickHandler">Delete</TelerikButton> 
+                         </div> 
+                    </div>
+                    <div class="row">
+                        <TelerikGrid Data="@EmployeeState.Value.EmployeeList" 
+                                     Pageable="true" PageSize="10" Height="600px"
+                                     Sortable="true" SelectionMode="GridSelectionMode.Single"
+                            SelectedItemsChanged="@((IEnumerable<EmployeeDto> EmployeeList) => OnSelect(EmployeeList))"
+                            SelectedItems="@SelectedItems" Reorderable="true" Resizable="true" Groupable="false"
+                            FilterMode="GridFilterMode.FilterRow">
+                            <GridColumns>
+                                <GridColumn Field="@(nameof(EmployeeDto.Id))" Visible="false" Title="Id" Groupable="false" />
+                                <GridColumn Field="@(nameof(EmployeeDto.Firstname))" Title="Firstname" Groupable="false" />
+                                <GridColumn Field="@(nameof(EmployeeDto.Lastname))" Title="LastName"
+                                            Groupable="false" />
+                                <GridColumn Field="@(nameof(EmployeeDto.Email))" Title="Email"
+                                            Groupable="false" />
+                                <GridColumn Field="@(nameof(EmployeeDto.CreatedDate))" Title="Created Date"
+                                            Groupable="false" />
+                            </GridColumns>
+                        </TelerikGrid>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

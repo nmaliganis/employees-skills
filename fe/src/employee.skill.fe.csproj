@@ -6,44 +6,7 @@
     <AssemblyName>employee.skill.fe</AssemblyName>
     <RootNamespace>employee.skill.fe</RootNamespace>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Store\Spaces\Effects\InitCustomer\**" />
-    <Compile Remove="Store\Spaces\Effects\UpdateCustomer\**" />
-    <Compile Remove="Store\Spaces\Reducers\CreateCustomer\**" />
-    <Compile Remove="Store\Spaces\Reducers\DeleteCustomer\**" />
-    <Compile Remove="Store\Spaces\Reducers\InitCustomer\**" />
-    <Compile Remove="Store\Spaces\Reducers\UpdateCustomer\**" />
-    <Content Remove="Store\Spaces\Effects\InitCustomer\**" />
-    <Content Remove="Store\Spaces\Effects\UpdateCustomer\**" />
-    <Content Remove="Store\Spaces\Reducers\CreateCustomer\**" />
-    <Content Remove="Store\Spaces\Reducers\DeleteCustomer\**" />
-    <Content Remove="Store\Spaces\Reducers\InitCustomer\**" />
-    <Content Remove="Store\Spaces\Reducers\UpdateCustomer\**" />
-    <EmbeddedResource Remove="Store\Spaces\Effects\InitCustomer\**" />
-    <EmbeddedResource Remove="Store\Spaces\Effects\UpdateCustomer\**" />
-    <EmbeddedResource Remove="Store\Spaces\Reducers\CreateCustomer\**" />
-    <EmbeddedResource Remove="Store\Spaces\Reducers\DeleteCustomer\**" />
-    <EmbeddedResource Remove="Store\Spaces\Reducers\InitCustomer\**" />
-    <EmbeddedResource Remove="Store\Spaces\Reducers\UpdateCustomer\**" />
-    <None Remove="Store\Spaces\Effects\InitCustomer\**" />
-    <None Remove="Store\Spaces\Effects\UpdateCustomer\**" />
-    <None Remove="Store\Spaces\Reducers\CreateCustomer\**" />
-    <None Remove="Store\Spaces\Reducers\DeleteCustomer\**" />
-    <None Remove="Store\Spaces\Reducers\InitCustomer\**" />
-    <None Remove="Store\Spaces\Reducers\UpdateCustomer\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="appsettings.json~RF6a85061.TMP" />
-    <None Remove="Pages\Customers\Sessions.razor~RFc3d1759.TMP" />
-    <None Remove="ServiceAgents\Contracts\IVehicleService.cs~RF54b1a8e.TMP" />
-    <None Remove="Shared\Layouts\AuthLayout.razor~RFeee5ecb.TMP" />
-    <None Remove="Store\Dashboard\Actions\FetchDashboards\FetchDashboardListAction.cs~RF161235.TMP" />
-    <None Remove="Store\Services\Actions\UpdateService\UpdateSessionSuccessAction.cs~RF6a16e8a.TMP" />
-    <None Remove="Store\Services\SessionFeature.cs~RF507e606.TMP" />
-    <None Remove="Store\Spaces\Actions\FetchSpaces\FetchSpaceListAction.cs~RF65cb9.TMP" />
-  </ItemGroup>
+  
 
   <ItemGroup>
     <PackageReference Include="Blazored.LocalStorage" Version="4.1.1" />
@@ -58,25 +21,9 @@
     <PackageReference Include="Serilog.Formatting.Compact" Version="1.1.0" />
     <PackageReference Include="Serilog.Sinks.Debug" Version="2.0.0" />
     <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
-    <PackageReference Include="Syncfusion.Blazor" Version="18.4.0.30" />
     <PackageReference Include="System.Text.Json" Version="5.0.2" />
     <PackageReference Include="Telerik.UI.for.Blazor" Version="2.22.0" />
     <PackageReference Include="Westwind.AspnetCore.LiveReload" Version="0.3.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Store\Customers\Effects\InitCustomer\" />
-    <Folder Include="Store\Customers\Reducers\DeleteCustomer\" />
-    <Folder Include="Store\Services\Effects\CreateService\" />
-    <Folder Include="Store\Services\Effects\DeleteService\" />
-    <Folder Include="Store\Services\Effects\FetchService\" />
-    <Folder Include="Store\Services\Effects\UpdateService\" />
-    <Folder Include="Store\Services\Reducers\CreateService\" />
-    <Folder Include="Store\Services\Reducers\DeleteService\" />
-    <Folder Include="Store\Services\Reducers\FetchService\" />
-    <Folder Include="Store\Services\Reducers\InitService\" />
-    <Folder Include="Store\Services\Reducers\UpdateService\" />
-    <Folder Include="wwwroot\assets\images\maps\" />
   </ItemGroup>
 
 </Project>

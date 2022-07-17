@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace smarthotel.ui
+namespace employee.skill.fe
 {
     public class Program
     {
@@ -16,7 +16,7 @@ namespace smarthotel.ui
                 {
                     webBuilder.UseSetting(WebHostDefaults.DetailedErrorsKey, "true"); // detailed server errors from circuits
                     webBuilder.UseStartup<Startup>();
-                    webBuilder.UseUrls("http://0.0.0.0:2000");
+                    webBuilder.UseUrls("http://0.0.0.0:6100");
                 });
     }
 }

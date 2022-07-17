@@ -6,6 +6,6 @@ namespace employees.skills.contracts.Skills;
 
 public interface IDeleteSkillProcessor
 {
-    Task DeleteSkillAsync(Guid skillToBeDeletedId);
+    Task<SkillDeletionUiModel> HardDeleteSkillAsync(Guid skillToBeDeletedId);
     Task<SkillDeletionUiModel> SoftDeleteSkillAsync(Guid skillToBeDeletedId);
 }

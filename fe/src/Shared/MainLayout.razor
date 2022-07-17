@@ -11,42 +11,23 @@
 				<span id="nav-toggle" class="nav-toggle d-md-none" @onclick="@ToggleNavMenu">
 					<span class="k-icon k-i-hamburger"></span>
 				</span>
-				<h1 id="app-title">SH-360</h1>
-				<p id="app-subtitle">Powered by NTUA</p>
+				<h1 id="app-title">Skills</h1>
 				<hr />
 				<p class="h4 mt-5">Project</p>
 				<ul class="nav nav-pills flex-column">
-					<li class="nav-item" id="dashbaord">
-						<NavLink class="@(IsAtRoot() ? "nav-link active" : "nav-link")" href="dashboard">Dashboard</NavLink>
+					<li class="nav-item" id="Skills">
+						<NavLink class="@(IsAtRoot() ? "nav-link active" : "nav-link")" href="skills">Skills</NavLink>
 					</li>
-					<li class="nav-item" id="history">
-						<NavLink class="nav-link" href="customers">Customers</NavLink>
+					<li class="nav-item" id="Employees">
+						<NavLink class="nav-link" href="employees">Employees</NavLink>
 					</li>
-                    <li class="nav-item" id="videos">
-                        <NavLink class="nav-link" href="services">Services</NavLink>
-                    </li>
-                    <li class="nav-item" id="videos">
-                        <NavLink class="nav-link" href="covid">Covid-19 Queries</NavLink>
-                    </li>
-                    @*<li class="nav-item" id="videos">
-                        <NavLink class="nav-link" href="views">Queries-Views</NavLink>
-                    </li>*@                   
-                    <li class="nav-item" id="videos">
-                        <NavLink class="nav-link" href="query-fame-place">Fame Places</NavLink>
-                    </li>                
-                    <li class="nav-item" id="videos">
-                        <NavLink class="nav-link" href="query-freq-service">Freq Service</NavLink>
-                    </li>
-                    <li class="nav-item" id="videos">
-                        <NavLink class="nav-link" href="query-fame-service">Fame Service</NavLink>
-                    </li>
 				</ul>
 				<hr class="py-5" />
 				<div id="copy">
 					<p>
 						Copyright
 						&copy;
-						@DateTime.Now.Year,<br /><a href="https://github.com/db-ntua-2021/project.git">SmartHotel360</a>
+						@DateTime.Now.Year,<br /><a href="https://github.com/nmaliganis/employees-skills">Employee.Skills</a>
 					</p>
 					<p>All Rights Reserved.</p>
 				</div>
