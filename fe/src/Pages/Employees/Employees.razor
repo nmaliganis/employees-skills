@@ -111,36 +111,52 @@
                 <h3 class="card-header">Employees</h3>
                 <div class="card-body">
                     <div class="row">
-                         <div class="form-group"> 
-                             <TelerikButton Enabled="@SaveBtnEnabled" Primary="true" Icon="add" 
-                                 OnClick="@OnAddEmployeeClickHandler">Add</TelerikButton> 
-                             <TelerikButton Enabled="@EditBtnEnabled" Icon="edit" OnClick="@OnEditEmployeeClickHandler">Edit</TelerikButton> 
-                             <TelerikButton Icon="delete" Class="dangerButton" OnClick="@OnDeleteEmployeeClickHandler">Delete</TelerikButton> 
-                         </div> 
+                        <div class="form-group"> 
+                            <TelerikButton Enabled="@SaveBtnEnabled" Primary="true" Icon="add" 
+                                           OnClick="@OnAddEmployeeClickHandler">Add</TelerikButton> 
+                            <TelerikButton Enabled="@EditBtnEnabled" Icon="edit" OnClick="@OnEditEmployeeClickHandler">Edit</TelerikButton> 
+                            <TelerikButton Icon="delete" Class="dangerButton" OnClick="@OnDeleteEmployeeClickHandler">Delete</TelerikButton> 
+                        </div> 
                     </div>
                     <div class="row">
-                        <TelerikGrid Data="@EmployeeState.Value.EmployeeList" 
+                        <TelerikGrid Data="@EmployeeState.Value.EmployeeList"
                                      Pageable="true" PageSize="10" Height="600px"
                                      Sortable="true" SelectionMode="GridSelectionMode.Multiple"
-                            SelectedItemsChanged="@((IEnumerable<EmployeeDto> EmployeeList) => OnSelect(EmployeeList))"
-                            SelectedItems="@SelectedItems" Reorderable="true" Resizable="true" Groupable="false"
-                            FilterMode="GridFilterMode.FilterRow">
+                                     SelectedItemsChanged="@((IEnumerable<EmployeeDto> EmployeeList) => OnSelect(EmployeeList))"
+                                     SelectedItems="@SelectedItems" Reorderable="true" Resizable="true" Groupable="false"
+                                     FilterMode="GridFilterMode.FilterRow">
+                            <GridToolBar>
+                                <GridCommandButton Command="ExcelExport" Icon="file-excel">Export to Excel</GridCommandButton>
+                                <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" /> Export All Pages</label>
+                                <span class="k-toolbar-spacer"></span>
+                                <GridSearchBox DebounceDelay="@DebounceDelay">
+                                </GridSearchBox>
+                            </GridToolBar>
+                            <GridExport>
+                                <GridExcelExport FileName="telerik-grid-export" AllPages="@ExportAllPages"/>
+                            </GridExport>
                             <GridColumns>
-                                <GridColumn Field="@(nameof(EmployeeDto.Id))" Visible="false" Title="Id" Groupable="false" />
-                                <GridColumn Field="@(nameof(EmployeeDto.Firstname))" Title="Firstname" Groupable="false" />
+                                <GridColumn Field="@(nameof(EmployeeDto.Id))" Visible="false" Title="Id" Groupable="false"/>
+                                <GridColumn Field="@(nameof(EmployeeDto.Firstname))" Title="Firstname" Groupable="false"/>
                                 <GridColumn Field="@(nameof(EmployeeDto.Lastname))" Title="LastName"
-                                            Groupable="false" />
+                                            Groupable="false"/>
                                 <GridColumn Field="@(nameof(EmployeeDto.Email))" Title="Email"
-                                            Groupable="false" />
+                                            Groupable="false"/>
                                 <GridColumn Field="@(nameof(EmployeeDto.HiredDate))" Title="Hired Date"
-                                            Groupable="false" />
+                                            Groupable="false"/>
                                 <GridColumn Field="@(nameof(EmployeeDto.CreatedDate))" Title="Created Date"
-                                            Groupable="false" />
+                                            Groupable="false"/>
                             </GridColumns>
                         </TelerikGrid>
                     </div>
                 </div>
             </div>
         </div>
+            @if (ValidDeletionSubmit)
+            {
+                @if (@EmployeeState.Value.DeletionStatus != Store.Statuses.DeletionStatus.Init){
+                    CheckValidityActionForDeletion();
+                }
+            }
     </div>
 </div>

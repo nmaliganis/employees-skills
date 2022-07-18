@@ -35,7 +35,7 @@ namespace employees.skills.services.Employees
       var response =
         new EmployeeUiModel()
         {
-          Message = "EMPLOYEE"
+          Message = "START_UPDATE_EMPLOYEE"
         };
 
       if (employeeIdToBeUpdated == Guid.Empty)
@@ -169,9 +169,9 @@ namespace employees.skills.services.Employees
     
     private void ThrowExcIfThisEmployeeAlreadyExist(Employee employeeToBeUpdated)
     {
-      var Employee =
+      var employee =
         _employeeRepository.FindEmployeeByNameAndEmail(employeeToBeUpdated.Lastname, employeeToBeUpdated.Firstname, employeeToBeUpdated.Email);
-      if (Employee != null && Employee.Id != employeeToBeUpdated.Id)
+      if (employee != null && employee.Id != employeeToBeUpdated.Id)
       {
         throw new EmployeeAlreadyExistsException(employeeToBeUpdated.Email);
       }
@@ -179,10 +179,10 @@ namespace employees.skills.services.Employees
     
     private Employee ThrowExceptionIfEmployeeDoesNotExist(Guid idEmployee)
     {
-      var EmployeeToBeUpdated = _employeeRepository.FindBy(idEmployee);
-      if (EmployeeToBeUpdated == null)
+      var employeeToBeUpdated = _employeeRepository.FindBy(idEmployee);
+      if (employeeToBeUpdated == null)
         throw new EmployeeDoesNotExistException(idEmployee);
-      return EmployeeToBeUpdated;
+      return employeeToBeUpdated;
     }
     
     private EmployeeUiModel ThrowExcIfEmployeeWasNotBeMadePersistent(Employee employeeToBeHaveBeenUpdated)

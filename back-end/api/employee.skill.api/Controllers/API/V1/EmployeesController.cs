@@ -194,7 +194,7 @@ public class EmployeesController : BaseController
     [HttpDelete("{id}", Name = "DeleteEmployeeRoot")]
     public async Task<IActionResult> DeleteEmployeeRoot(Guid id)
     {
-        var employeeToBeSoftDeleted = await this._deleteEmployeeProcessor.SoftDeleteEmployeeAsync(id);
+        var employeeToBeSoftDeleted = await this._deleteEmployeeProcessor.HardDeleteEmployeeAsync(id);
 
         return this.Ok(employeeToBeSoftDeleted);
     }

@@ -77,20 +77,30 @@
                 <h3 class="card-header">Skills</h3>
                 <div class="card-body">
                     <div class="row">
-                         <div class="form-group"> 
-                             <TelerikButton Enabled="@SaveBtnEnabled" Primary="true" Icon="add" 
-                                 OnClick="@OnAddSkillClickHandler">Add</TelerikButton> 
-                             <TelerikButton Icon="edit" OnClick="@OnEditSkillClickHandler">Edit</TelerikButton> 
-                             <TelerikButton Icon="delete" Class="dangerButton" OnClick="@OnDeleteSkillClickHandler">Delete</TelerikButton> 
-                         </div> 
+                        <div class="form-group"> 
+                            <TelerikButton Enabled="@SaveBtnEnabled" Primary="true" Icon="add" 
+                                           OnClick="@OnAddSkillClickHandler">Add</TelerikButton> 
+                            <TelerikButton Icon="edit" OnClick="@OnEditSkillClickHandler">Edit</TelerikButton> 
+                            <TelerikButton Icon="delete" Class="dangerButton" OnClick="@OnDeleteSkillClickHandler">Delete</TelerikButton> 
+                        </div> 
                     </div>
                     <div class="row">
                         <TelerikGrid Data="@SkillState.Value.SkillList" 
                                      Pageable="true" PageSize="10" Height="600px"
                                      Sortable="true" SelectionMode="GridSelectionMode.Single"
-                            SelectedItemsChanged="@((IEnumerable<SkillDto> skillList) => OnSelect(skillList))"
-                            SelectedItems="@SelectedItems" Reorderable="true" Resizable="true" Groupable="false"
-                            FilterMode="GridFilterMode.FilterRow">
+                                     SelectedItemsChanged="@((IEnumerable<SkillDto> skillList) => OnSelect(skillList))"
+                                     SelectedItems="@SelectedItems" Reorderable="true" Resizable="true" Groupable="false"
+                                     FilterMode="GridFilterMode.FilterRow">
+                            <GridToolBar>
+                                <GridCommandButton Command="ExcelExport" Icon="file-excel">Export to Excel</GridCommandButton>
+                                <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" /> Export All Pages</label>
+                                <span class="k-toolbar-spacer"></span>
+                                <GridSearchBox DebounceDelay="@DebounceDelay">
+                                </GridSearchBox>
+                            </GridToolBar>
+                            <GridExport>
+                                <GridExcelExport FileName="telerik-grid-export" AllPages="@ExportAllPages"/>
+                            </GridExport>
                             <GridColumns>
                                 <GridColumn Field="@(nameof(SkillDto.Id))" Visible="false" Title="Id" Groupable="false" />
                                 <GridColumn Field="@(nameof(SkillDto.Name))" Title="Name" Groupable="false" />
@@ -104,5 +114,11 @@
                 </div>
             </div>
         </div>
+        @if (ValidDeletionSubmit)
+        {
+            @if (@SkillState.Value.DeletionStatus != Store.Statuses.DeletionStatus.Init){
+                CheckValidityActionForDeletion();
+            }
+        }
     </div>
 </div>

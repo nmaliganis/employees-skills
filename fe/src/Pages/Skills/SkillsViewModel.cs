@@ -6,6 +6,7 @@ using System.Timers;
 using employee.skill.fe.Models.DTOs.Skills;
 using employee.skill.fe.Store.Skills;
 using employee.skill.fe.Store.Skills.Actions.Create;
+using employee.skill.fe.Store.Skills.Actions.Delete;
 using employee.skill.fe.Store.Skills.Actions.FetchAll;
 using employee.skill.fe.Store.Skills.Actions.Init;
 using employee.skill.fe.Store.Skills.Actions.Update;
@@ -29,6 +30,7 @@ namespace employee.skill.fe.Pages.Skills
     protected bool ManipulationSkillIsVisible { get; set; } = false;
     protected SkillDto SkillToBeManipulated { get; set; } = new SkillDto();
     protected bool ValidSubmit { get; set; } = false;
+    protected bool ValidDeletionSubmit { get; set; } = false;
     protected string ActionText { get; set; } = "Add";
     private string Message { get; set; } = string.Empty;
 
@@ -174,6 +176,12 @@ namespace employee.skill.fe.Pages.Skills
     #endregion
 
     #region Functions
+    protected int? SearchBoxWidth { get; set; } = 200;
+
+    protected int DebounceDelay { get; set; } = 200;
+    protected bool ExportAllPages { get; set; } = true;
+    public bool CancelExport { get; set; } = false;
+    public List<string> ExportColumns { get; set; } = new List<string>();
     public SkillDto SelectedSkillItem { get; set; }
     private IEnumerable<SkillDto> _selectedItems; 
     public IEnumerable<SkillDto> SelectedItems 
@@ -235,8 +243,20 @@ namespace employee.skill.fe.Pages.Skills
       SkillToBeManipulated = SelectedSkillItem;
     }
 
-    protected async Task OnDeleteSkillClickHandler() {
-
+    protected async Task OnDeleteSkillClickHandler()
+    {
+      this.ValidDeletionSubmit = true;
+      this.Dispatcher.Dispatch(new DeleteSkillAction(this.SelectedSkillItem.Id));
+    }
+    
+    protected void CheckValidityActionForDeletion() {
+      if (this.ValidDeletionSubmit) {
+        this.ValidDeletionSubmit = false;
+        if (this.SkillState.Value.DeletionStatus == DeletionStatus.Success) {
+          this.FetchSkillList();
+          Dispatcher.Dispatch(new ClearSkillAction());
+        }
+      }
     }
 
     #endregion

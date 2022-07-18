@@ -179,11 +179,11 @@ namespace employee.skill.fe.ServiceAgents.Impls.Skills
       return result;
     }
 
-    public async Task<SkillDto> DeleteSkill(Guid SkillIdToBeDeleted)
+    public async Task<SkillDto> DeleteSkill(Guid skillIdToBeDeleted)
     {
       SkillDto result = new SkillDto();
 
-      var client = new RestClient($"{BaseAddr}/api/{Version}/skills/{SkillIdToBeDeleted}");
+      var client = new RestClient($"{BaseAddr}/api/{Version}/skills/{skillIdToBeDeleted}");
       var request = new RestRequest("", Method.DELETE);
 
       request.AddHeader("Content-Type", "application/json");

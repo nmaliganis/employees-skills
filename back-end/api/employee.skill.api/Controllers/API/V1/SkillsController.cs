@@ -183,7 +183,7 @@ public class SkillsController : BaseController {
     /// <response code="500">Internal Server Error.</response>
     [HttpDelete("{id}", Name = "DeleteSkillRoot")]
     public async Task<IActionResult> DeleteSkillRoot(Guid id) {
-        var skillToBeSoftDeleted = await this._deleteSkillProcessor.SoftDeleteSkillAsync(id);
+        var skillToBeSoftDeleted = await this._deleteSkillProcessor.HardDeleteSkillAsync(id);
 
         return this.Ok(skillToBeSoftDeleted);
     }

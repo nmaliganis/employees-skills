@@ -42,26 +42,26 @@ namespace employees.skills.services.Skills
 
             try
             {
-                var SkillToBeSoftDeleted = _skillRepository.FindBy(skillToBeDeletedId);
+                var skillToBeSoftDeleted = _skillRepository.FindBy(skillToBeDeletedId);
 
-                if (SkillToBeSoftDeleted == null)
+                if (skillToBeSoftDeleted == null)
                     throw new SkillDoesNotExistException(skillToBeDeletedId);
 
-                SkillToBeSoftDeleted.SoftDeleted();
+                skillToBeSoftDeleted.SoftDeleted();
 
                 Log.Debug(
                     $"Update-Delete Skill: with Id: {skillToBeDeletedId}" +
                     "--SoftDeleteSkill--  @Ready@ [DeleteSkillProcessor]. " +
                     "Message: Just Before MakeItPersistence");
 
-                MakeSkillPersistent(SkillToBeSoftDeleted);
+                MakeSkillPersistent(skillToBeSoftDeleted);
 
                 Log.Debug(
                     $"Update-Delete Skill: with Id: {skillToBeDeletedId}" +
                     "--SoftDeleteSkill--  @Ready@ [DeleteSkillProcessor]. " +
                     "Message: Just After MakeItPersistence");
 
-                response = ThrowExcIfSkillWasNotBeMadePersistent(SkillToBeSoftDeleted);
+                response = ThrowExcIfSkillWasNotBeMadePersistent(skillToBeSoftDeleted);
                 response.Message = "SUCCESS_DELETION";
             }
             catch (SkillDoesNotExistException e)

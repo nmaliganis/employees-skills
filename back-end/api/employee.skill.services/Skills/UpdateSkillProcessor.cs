@@ -31,7 +31,7 @@ namespace employees.skills.services.Skills
       var response =
         new SkillUiModel()
         {
-          Message = "START_Skill"
+          Message = "START_UPDATE_SKILL"
         };
 
       if (skillIdToBeUpdated == Guid.Empty)

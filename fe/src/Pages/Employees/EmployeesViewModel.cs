@@ -7,6 +7,7 @@ using employee.skill.fe.Models.DTOs.Employees;
 using employee.skill.fe.Models.DTOs.Skills;
 using employee.skill.fe.Store.Employees;
 using employee.skill.fe.Store.Employees.Actions.Create;
+using employee.skill.fe.Store.Employees.Actions.Delete;
 using employee.skill.fe.Store.Employees.Actions.FetchEmployees;
 using employee.skill.fe.Store.Employees.Actions.InitEmployee;
 using employee.skill.fe.Store.Employees.Actions.UpdateEmployee;
@@ -35,6 +36,7 @@ namespace employee.skill.fe.Pages.Employees
     protected bool ManipulationEmployeeIsVisible { get; set; } = false;
     protected EmployeeDto EmployeeToBeManipulated { get; set; } = new EmployeeDto();
     protected bool ValidSubmit { get; set; } = false;
+    protected bool ValidDeletionSubmit { get; set; } = false;
     public string ActionText { get; set; } = "Add";
     private string Message { get; set; } = string.Empty;
 
@@ -198,10 +200,17 @@ namespace employee.skill.fe.Pages.Employees
 
     #region Functions
 
-    public EmployeeDto SelectedEmployeeItem { get; set; }
+    private EmployeeDto SelectedEmployeeItem { get; set; }
     private IEnumerable<EmployeeDto> _selectedItems;
+    protected string SearchPlaceholder { get; set; } = "Firstname or Lastname";
+    protected int? SearchBoxWidth { get; set; } = 200;
 
-    public IEnumerable<EmployeeDto> SelectedItems
+    protected int DebounceDelay { get; set; } = 200;
+    protected bool ExportAllPages { get; set; } = true;
+    public bool CancelExport { get; set; } = false;
+    public List<string> ExportColumns { get; set; } = new List<string>();
+
+    protected IEnumerable<EmployeeDto> SelectedItems
     {
       get
       {
@@ -264,8 +273,20 @@ namespace employee.skill.fe.Pages.Employees
       EmployeeToBeManipulated = SelectedEmployeeItem;
     }
 
-    protected async Task OnDeleteEmployeeClickHandler() {
-
+    protected async Task OnDeleteEmployeeClickHandler()
+    {
+      this.ValidDeletionSubmit = true;
+      this.Dispatcher.Dispatch(new DeleteEmployeeAction(this.SelectedEmployeeItem.Id));
+    }
+    
+    protected void CheckValidityActionForDeletion() {
+      if (this.ValidDeletionSubmit) {
+        this.ValidDeletionSubmit = false;
+        if (this.EmployeeState.Value.DeletionStatus == DeletionStatus.Success) {
+          this.FetchEmployeeList();
+          Dispatcher.Dispatch(new ClearEmployeeAction());
+        }
+      }
     }
 
     #endregion
