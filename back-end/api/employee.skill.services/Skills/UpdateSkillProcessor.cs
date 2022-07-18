@@ -8,10 +8,9 @@ using employee.skill.common.infrastructure.UnitOfWorks;
 using employee.skill.repository.ContractRepositories;
 using employees.skills.contracts.Skills;
 using employees.skills.model.Skills;
-using FluentNHibernate.Conventions;
 using Serilog;
 
-namespace doc.imagination.services.Skills
+namespace employees.skills.services.Skills
 {
   public class UpdateSkillProcessor : IUpdateSkillProcessor
   {
@@ -37,7 +36,7 @@ namespace doc.imagination.services.Skills
 
       if (skillIdToBeUpdated == Guid.Empty)
       {
-        response.Message = "ERROR_INVALID_Skill_MODEL";
+        response.Message = "ERROR_INVALID_SKILL_MODEL";
         return Task.Run(() => response);
       }
 

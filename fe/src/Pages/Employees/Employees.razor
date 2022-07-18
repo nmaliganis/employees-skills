@@ -114,14 +114,14 @@
                          <div class="form-group"> 
                              <TelerikButton Enabled="@SaveBtnEnabled" Primary="true" Icon="add" 
                                  OnClick="@OnAddEmployeeClickHandler">Add</TelerikButton> 
-                             <TelerikButton Icon="edit" OnClick="@OnEditEmployeeClickHandler">Edit</TelerikButton> 
+                             <TelerikButton Enabled="@EditBtnEnabled" Icon="edit" OnClick="@OnEditEmployeeClickHandler">Edit</TelerikButton> 
                              <TelerikButton Icon="delete" Class="dangerButton" OnClick="@OnDeleteEmployeeClickHandler">Delete</TelerikButton> 
                          </div> 
                     </div>
                     <div class="row">
                         <TelerikGrid Data="@EmployeeState.Value.EmployeeList" 
                                      Pageable="true" PageSize="10" Height="600px"
-                                     Sortable="true" SelectionMode="GridSelectionMode.Single"
+                                     Sortable="true" SelectionMode="GridSelectionMode.Multiple"
                             SelectedItemsChanged="@((IEnumerable<EmployeeDto> EmployeeList) => OnSelect(EmployeeList))"
                             SelectedItems="@SelectedItems" Reorderable="true" Resizable="true" Groupable="false"
                             FilterMode="GridFilterMode.FilterRow">

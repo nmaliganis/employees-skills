@@ -223,7 +223,7 @@ public class EmployeesController : BaseController
 
         var employeesQueryable = await this._inquiryAllEmployeesProcessor.GetEmployeesAsync(EmployeesResourceParameters);
 
-        var Employees = Mapper.Map<IEnumerable<EmployeeUiModel>>(employeesQueryable);
+        var employees = Mapper.Map<IEnumerable<EmployeeUiModel>>(employeesQueryable);
 
         var previousPageLink = employeesQueryable.HasPrevious
             ? this.CreateEmployeesResourceUri(EmployeesResourceParameters,
@@ -247,7 +247,7 @@ public class EmployeesController : BaseController
         this.Response.Headers.Add("X-Pagination",
             JsonConvert.SerializeObject(paginationMetadata));
 
-        return this.Ok(Employees.ShapeData(EmployeesResourceParameters.Fields));
+        return this.Ok(employees.ShapeData(EmployeesResourceParameters.Fields));
     }
 
     #region Link Builder

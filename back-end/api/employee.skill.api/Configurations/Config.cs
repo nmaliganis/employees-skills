@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Reflection;
 using AspNetCoreRateLimit;
-using doc.imagination.services.Skills;
 using employee.skill.common.infrastructure.Exceptions.Repositories;
 using employee.skill.common.infrastructure.PropertyMappings;
 using employee.skill.common.infrastructure.PropertyMappings.TypeHelpers;

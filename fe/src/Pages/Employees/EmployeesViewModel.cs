@@ -76,7 +76,7 @@ namespace employee.skill.fe.Pages.Employees
         if (this.EmployeeState.Value.CreationStatus == CreationStatus.Success) {
           this.Message = "Creation";
           this.ShowSuccessToastr();
-          this.FetchSkillList();
+          this.FetchEmployeeList();
           this.SetTimer(3000);
         }
 
@@ -111,7 +111,7 @@ namespace employee.skill.fe.Pages.Employees
         if (this.EmployeeState.Value.ModificationStatus == ModificationStatus.Success) {
           this.Message = "Modification";
           this.ShowSuccessToastr();
-          this.FetchSkillList();
+          this.FetchEmployeeList();
           this.StateHasChanged();
         }
 
@@ -123,6 +123,10 @@ namespace employee.skill.fe.Pages.Employees
       }
     }
 
+    private void FetchEmployeeList() {
+      this.Dispatcher.Dispatch(new FetchEmployeeListAction());
+    }
+    
     private void FetchSkillList() {
       this.Dispatcher.Dispatch(new FetchSkillListAction());
     }
@@ -216,6 +220,8 @@ namespace employee.skill.fe.Pages.Employees
     {
       SelectedEmployeeItem = EmployeeItems.FirstOrDefault();
       SelectedItems = new List<EmployeeDto> { SelectedEmployeeItem };
+
+      this.EditBtnEnabled = SelectedItems.Count() <= 1;
     }
 
     #endregion
@@ -244,6 +250,7 @@ namespace employee.skill.fe.Pages.Employees
     #region Buttons
 
     [Parameter] public bool SaveBtnEnabled { get; set; } = true;
+    [Parameter] public bool EditBtnEnabled { get; set; } = true;
 
     protected async Task OnAddEmployeeClickHandler() {
       this.ActionText = "Add";

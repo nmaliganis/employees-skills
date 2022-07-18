@@ -21,6 +21,10 @@ public class EmployeeCreationUiModel
     [Editable(true)]
     public string Email { get; set; }
     
+    [Required]
+    [Editable(true)]
+    public DateTime HiredDate { get; set; }
+    
     [Required(AllowEmptyStrings = false)]
     [Editable(true)]
     public List<Guid> ExistingSkillIds { get; set; }

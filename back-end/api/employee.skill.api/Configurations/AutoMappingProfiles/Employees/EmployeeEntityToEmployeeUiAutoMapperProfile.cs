@@ -1,3 +1,4 @@
+using System.Linq;
 using AutoMapper;
 using employee.skill.common.dtos.Vms.Employees;
 using employees.skills.model.Employees;
@@ -29,6 +30,7 @@ namespace employees.skills.api.Configurations.AutoMappingProfiles.Employees
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
                 .ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(src => src.CreatedDate))
                 .ForMember(dest => dest.HiredDate, opt => opt.MapFrom(src => src.HiredDate))
+                .ForMember(dest => dest.ExistingSkillIds, opt => opt.MapFrom(src => src.Skills.Select(y => y.Skill.Id).ToList()))
                 .ForMember(dest => dest.Active, opt => opt.MapFrom(src => src.Active))
                 .MaxDepth(1)
                 .ReverseMap()

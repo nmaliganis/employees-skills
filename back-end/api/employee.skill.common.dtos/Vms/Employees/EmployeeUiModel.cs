@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using employee.skill.common.dtos.Vms.Base;
 
@@ -21,5 +22,9 @@ namespace employee.skill.common.dtos.Vms.Employees
         public DateTime HiredDate { get; set; }
         [Required] [Editable(true)]
         public bool Active { get; set; }
+        
+        [Required(AllowEmptyStrings = false)]
+        [Editable(true)]
+        public List<Guid> ExistingSkillIds { get; set; }
     }
 }

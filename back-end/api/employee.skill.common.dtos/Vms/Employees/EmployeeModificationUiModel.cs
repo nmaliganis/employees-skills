@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace employee.skill.common.dtos.Vms.Employees
 {
@@ -15,5 +17,16 @@ namespace employee.skill.common.dtos.Vms.Employees
         [Required(AllowEmptyStrings = false)]
         [Editable(true)]
         public string Email { get; set; }
+        
+        [Required]
+        [Editable(true)]
+        public DateTime HiredDate { get; set; }
+    
+        [Required(AllowEmptyStrings = false)]
+        [Editable(true)]
+        public List<Guid> ExistingSkillIds { get; set; }
+    
+        [Editable(true)]
+        public string NonExistingSkill { get; set; }
     }
 }

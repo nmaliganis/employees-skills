@@ -12,6 +12,11 @@ namespace employee.skill.common.infrastructure.Exceptions.Domain.Employees
             this.Name = name;
             this.BrokenRules = brokenRules;
         }
+        
+        public EmployeeAlreadyExistsException(string name)
+        {
+            this.Name = name;
+        }
 
         public override string Message => $" Employee with Name:{Name} already Exists!\n Additional info:{BrokenRules}";
     }
