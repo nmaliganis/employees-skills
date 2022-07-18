@@ -6,9 +6,9 @@ namespace employee.skill.fe.Store.Skills.Actions.Create
   {
     public SkillDto SkillHaveBeenCreated { get; private set; }
 
-    public CreateSkillSuccessAction(SkillDto SkillHaveBeenCreated)
+    public CreateSkillSuccessAction(SkillDto skillHaveBeenCreated)
     {
-      SkillHaveBeenCreated = SkillHaveBeenCreated;
+      SkillHaveBeenCreated = skillHaveBeenCreated;
     }
   }
 }

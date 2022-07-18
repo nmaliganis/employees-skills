@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using employee.skill.fe.Models.DTOs.Skills;
+using employee.skill.fe.Store.Statuses;
 
 namespace employee.skill.fe.Store.Skills
 {
@@ -13,6 +14,9 @@ namespace employee.skill.fe.Store.Skills
     public SkillForCreationDto SkillToBeCreatedPayload { get; private set; }
     public SkillForModificationDto SkillToBeUpdatePayload { get; }
     public Guid SkillId { get; }
+    public CreationStatus CreationStatus { get; }
+    public ModificationStatus ModificationStatus { get; }
+    public DeletionStatus DeletionStatus { get; }
 
     public SkillState(
       List<SkillDto> skillList, 
@@ -21,7 +25,10 @@ namespace employee.skill.fe.Store.Skills
       SkillDto skill, 
       SkillForCreationDto skillToBeCreatedPayload, 
       SkillForModificationDto skillToBeUpdatePayload, 
-      Guid skillId
+      Guid skillId,
+      CreationStatus creationStatus,
+      ModificationStatus modificationStatus,
+      DeletionStatus deletionStatus
     )
     {
       SkillList  = skillList;
@@ -31,6 +38,9 @@ namespace employee.skill.fe.Store.Skills
       SkillToBeCreatedPayload = skillToBeCreatedPayload;
       SkillToBeUpdatePayload = skillToBeUpdatePayload;
       SkillId = skillId;
+      CreationStatus = creationStatus;
+      ModificationStatus = modificationStatus;
+      DeletionStatus = deletionStatus;
     }
   }
 }

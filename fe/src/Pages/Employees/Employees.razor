@@ -1,5 +1,7 @@
 @page "/employees"
 @using employee.skill.fe.Models.DTOs.Employees
+@using employee.skill.fe.Models.DTOs.Skills
+@using Microsoft.AspNetCore.Components
 @inherits EmployeesViewModel
 
 <TelerikWindow Modal="true" @bind-Visible="@ManipulationEmployeeIsVisible">
@@ -39,8 +41,45 @@
                                     </TelerikButton>
                                 </FormButtons>
                                 <FormItems>
-                                    <FormGroup LabelText="Employee Information" Columns="2"
+                                    <FormGroup LabelText="Employee Information" Columns="1"
                                                ColumnSpacing="40px">
+                                            @**@
+                                            <FormItem LabelText="Firstname: " ColSpan="1" Field="@nameof(EmployeeDto.Firstname)" />
+                                            <FormItem LabelText="Lastname: " ColSpan="1" Field="@nameof(EmployeeDto.Lastname)" />
+                                            <FormItem LabelText="Email: " ColSpan="1" Field="@nameof(EmployeeDto.Email)" />
+                                            
+                                            @*Hired*@
+                                            <FormItem>
+                                                <Template>
+                                                    <label>Hired: </label>
+                                                    <TelerikDateTimePicker @bind-Value="@EmployeeToBeManipulated.HiredDate"
+                                                                           OnChange="OnEmployeeToBeManipulatedHiredClicked"
+                                                                           Id="hired-date">
+                                                    </TelerikDateTimePicker>
+                                                </Template>
+                                            </FormItem>
+                                            
+                                            @*Skills*@
+                                            <FormItem>
+                                                <Template>
+                                                    <label>
+                                                        Skill(s):
+                                                    </label>
+                                                    <TelerikMultiSelect
+                                                        Data="@SkillState.Value.SkillList"
+                                                        TValue="Guid"
+                                                        TItem="SkillDto"
+                                                        @bind-Value="@EmployeeToBeManipulated.ExistingSkillIds"
+                                                        ValueField="@nameof(SkillDto.Id)"
+                                                        TextField="@nameof(SkillDto.Name)"
+                                                        Placeholder="Select Skill(s) ..."
+                                                        Id="skill-multiselect" Width="100%">
+                                                    </TelerikMultiSelect>
+                                                </Template>
+                                            </FormItem>
+                                            
+                                            <FormItem LabelText="Non Existing Skill: " ColSpan="1" Field="@nameof(EmployeeDto.NonExistingSkill)" />
+                                            @**@
                                     </FormGroup>
                                 </FormItems>
                             </TelerikForm>
@@ -49,7 +88,11 @@
                 </div>
                 @if (ValidSubmit)
                 {
-
+                    if (@EmployeeState.Value.CreationStatus != Store.Statuses.CreationStatus.Init){
+                        CheckValidityActionForCreation();
+                    } else if (@EmployeeState.Value.ModificationStatus != Store.Statuses.ModificationStatus.Init){
+                        CheckValidityActionForModification();
+                    }
                 }
             </div>
         </div>

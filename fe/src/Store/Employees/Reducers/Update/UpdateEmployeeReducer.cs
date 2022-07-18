@@ -14,7 +14,10 @@ namespace employee.skill.fe.Store.Employees.Reducers.UpdateEmployee
         state.Employee,
         state.EmployeeToBeCreatedPayload,
         action.EmployeeForModificationDto,
-        action.EmployeeToBeUpdateId
+        action.EmployeeToBeUpdateId,
+        state.CreationStatus,
+        state.ModificationStatus,
+        state.DeletionStatus
         );
     }
   }

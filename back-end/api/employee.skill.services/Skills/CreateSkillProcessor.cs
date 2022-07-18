@@ -65,7 +65,7 @@ public class CreateSkillProcessor : ICreateSkillProcessor
         }
         catch (InvalidSkillException e)
         {
-            response.Message = "ERROR_INVALID_Skill_MODEL";
+            response.Message = "ERROR_INVALID_SKILL_MODEL";
             Log.Error(
                 $"Create Skill: {newSkillUiModel.Name}" +
                 $"Error Message:{response.Message}" +
@@ -74,7 +74,7 @@ public class CreateSkillProcessor : ICreateSkillProcessor
         }
         catch (SkillAlreadyExistsException ex)
         {
-            response.Message = "ERROR_Skill_ALREADY_EXISTS";
+            response.Message = "ERROR_SKILL_ALREADY_EXISTS";
             Log.Error(
                 $"Create Skill: {newSkillUiModel.Name}" +
                 $"Error Message:{response.Message}" +
@@ -83,7 +83,7 @@ public class CreateSkillProcessor : ICreateSkillProcessor
         }
         catch (SkillDoesNotExistAfterMadePersistentException exx)
         {
-            response.Message = "ERROR_Skill_NOT_MADE_PERSISTENT";
+            response.Message = "ERROR_SKILL_NOT_MADE_PERSISTENT";
             Log.Error(
                 $"Create Skill: {newSkillUiModel.Name}" +
                 $"Error Message:{response.Message}" +

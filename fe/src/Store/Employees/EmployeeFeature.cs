@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using employee.skill.fe.Models.DTOs.Employees;
+using employee.skill.fe.Store.Statuses;
 using Fluxor;
 
 namespace employee.skill.fe.Store.Employees
@@ -16,7 +17,10 @@ namespace employee.skill.fe.Store.Employees
       new EmployeeDto(), 
       new EmployeeForCreationDto(), 
       new EmployeeForModificationDto(), 
-      Guid.Empty
+      Guid.Empty,
+      CreationStatus.Init,
+      ModificationStatus.Init,
+      DeletionStatus.Init
     );
   }
 }

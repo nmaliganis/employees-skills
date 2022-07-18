@@ -34,7 +34,8 @@ namespace employees.skills.model.Skills
 
         public virtual void InjectWithInitialAttributes(SkillCreationUiModel newSkillUiModel)
         {
-            
+            this.Name = newSkillUiModel.Name;
+            this.Description = newSkillUiModel.Description;
         }
 
         public virtual void SoftDeleted()

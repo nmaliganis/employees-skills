@@ -12,6 +12,11 @@ public class SkillAlreadyExistsException : Exception
         this.Name = name;
         this.BrokenRules = brokenRules;
     }
+    
+    public SkillAlreadyExistsException(string name)
+    {
+        this.Name = name;
+    }
 
     public override string Message => $" Skill with Name:{Name} already Exists!\n Additional info:{BrokenRules}";
 }

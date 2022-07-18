@@ -14,7 +14,10 @@ namespace employee.skill.fe.Store.Skills.Reducers.Update
         state.Skill,
         state.SkillToBeCreatedPayload,
         action.SkillForModificationDto,
-        action.SkillToBeUpdateId
+        action.SkillToBeUpdateId,
+        state.CreationStatus,
+        state.ModificationStatus,
+        state.DeletionStatus
         );
     }
   }

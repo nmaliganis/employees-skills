@@ -94,7 +94,7 @@ public class SkillsController : BaseController {
                     $"--Method:PostSkillRouteAsync -- Message:ERROR_SKILL_ALREADY_EXISTS -- Datetime:{DateTime.Now} -- SkillInfo:{SkillForCreationUiModel.Name}");
                 return BadRequest(new { errorMessage = "Skill_ALREADY_EXISTS" });
             }
-            case ("ERROR_Skill_NOT_MADE_PERSISTENT"):
+            case ("ERROR_SKILL_NOT_MADE_PERSISTENT"):
             {
                 Log.Error(
                     $"--Method:PostSkillRouteAsync -- Message:ERROR_SKILL_NOT_MADE_PERSISTENT -- Datetime:{DateTime.Now} -- SkillInfo:{SkillForCreationUiModel.Name}");

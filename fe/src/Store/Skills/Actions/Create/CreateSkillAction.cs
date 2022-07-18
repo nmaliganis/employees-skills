@@ -4,9 +4,9 @@ namespace employee.skill.fe.Store.Skills.Actions.Create
 {
   public class CreateSkillAction
   {
-    public CreateSkillAction(SkillForCreationDto SkillToBeCreatedPayload)
+    public CreateSkillAction(SkillForCreationDto skillToBeCreatedPayload)
     {
-      SkillToBeCreatedPayload = SkillToBeCreatedPayload;
+      SkillToBeCreatedPayload = skillToBeCreatedPayload;
     }
 
     public SkillForCreationDto SkillToBeCreatedPayload { get; private set; }

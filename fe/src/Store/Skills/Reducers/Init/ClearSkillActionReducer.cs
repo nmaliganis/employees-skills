@@ -15,7 +15,10 @@ namespace employee.skill.fe.Store.Skills.Reducers.Init
         new SkillDto(), 
         state.SkillToBeCreatedPayload,
         state.SkillToBeUpdatePayload,
-        state.SkillId
+        state.SkillId,
+        state.CreationStatus,
+        state.ModificationStatus,
+        state.DeletionStatus
       );
     }
   }

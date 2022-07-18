@@ -1,5 +1,6 @@
 ﻿using employee.skill.fe.Models.DTOs.Employees;
 using employee.skill.fe.Store.Employees.Actions.InitEmployee;
+using employee.skill.fe.Store.Statuses;
 using Fluxor;
 
 namespace employee.skill.fe.Store.Employees.Reducers.InitEmployee
@@ -15,7 +16,10 @@ namespace employee.skill.fe.Store.Employees.Reducers.InitEmployee
         new EmployeeDto(), 
         state.EmployeeToBeCreatedPayload,
         state.EmployeeToBeUpdatePayload,
-        state.EmployeeId
+        state.EmployeeId,
+        CreationStatus.Init,
+        ModificationStatus.Init,
+        DeletionStatus.Init
       );
     }
   }

@@ -1,4 +1,5 @@
 ﻿using employee.skill.fe.Store.Skills.Actions.Create;
+using employee.skill.fe.Store.Statuses;
 using Fluxor;
 
 namespace employee.skill.fe.Store.Skills.Reducers.Create
@@ -14,7 +15,10 @@ namespace employee.skill.fe.Store.Skills.Reducers.Create
         state.Skill,
         state.SkillToBeCreatedPayload,
         state.SkillToBeUpdatePayload,
-        state.SkillId
+        state.SkillId,
+        CreationStatus.Failed,
+        state.ModificationStatus,
+        state.DeletionStatus
         );
     }
   }

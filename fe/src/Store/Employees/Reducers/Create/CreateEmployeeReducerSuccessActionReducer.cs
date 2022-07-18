@@ -1,4 +1,5 @@
 ﻿using employee.skill.fe.Store.Employees.Actions.CreateEmployee;
+using employee.skill.fe.Store.Statuses;
 using Fluxor;
 
 namespace employee.skill.fe.Store.Employees.Reducers.CreateEmployee
@@ -14,7 +15,10 @@ namespace employee.skill.fe.Store.Employees.Reducers.CreateEmployee
         action.EmployeeHaveBeenCreated,
         state.EmployeeToBeCreatedPayload,
         state.EmployeeToBeUpdatePayload,
-        state.EmployeeId
+        state.EmployeeId,
+        CreationStatus.Success,
+        state.ModificationStatus,
+        state.DeletionStatus
       );
     }
   }

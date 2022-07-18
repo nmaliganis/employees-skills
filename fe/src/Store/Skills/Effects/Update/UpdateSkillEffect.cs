@@ -10,9 +10,9 @@ namespace employee.skill.fe.Store.Skills.Effects.Update
   public class UpdateSkillEffect : Effect<UpdateSkillAction>
   {
     public ISkillDataService SkillDataService { get; set; }
-    public UpdateSkillEffect(ISkillDataService SkillDataService)
+    public UpdateSkillEffect(ISkillDataService skillDataService)
     {
-      SkillDataService = SkillDataService;
+      SkillDataService = skillDataService;
     }
 
     public override async Task HandleAsync(UpdateSkillAction action, IDispatcher dispatcher)

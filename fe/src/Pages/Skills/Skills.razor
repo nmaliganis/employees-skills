@@ -40,8 +40,12 @@
                                     </TelerikButton>
                                 </FormButtons>
                                 <FormItems>
-                                    <FormGroup LabelText="Skill Information" Columns="2"
+                                    <FormGroup LabelText="Skill Information" Columns="1"
                                                ColumnSpacing="40px">
+                                            @**@
+                                            <FormItem LabelText="Name: " ColSpan="1" Field="@nameof(SkillDto.Name)" />
+                                            <FormItem LabelText="Description: " ColSpan="1" Field="@nameof(SkillDto.Description)" />
+                                            @**@
                                     </FormGroup>
                                 </FormItems>
                             </TelerikForm>
@@ -50,7 +54,11 @@
                 </div>
                 @if (ValidSubmit)
                 {
-
+                    if (@SkillState.Value.CreationStatus != Store.Statuses.CreationStatus.Init){
+                        CheckValidityActionForCreation();
+                    } else if (@SkillState.Value.ModificationStatus != Store.Statuses.ModificationStatus.Init){
+                        CheckValidityActionForModification();
+                    }
                 }
             </div>
         </div>

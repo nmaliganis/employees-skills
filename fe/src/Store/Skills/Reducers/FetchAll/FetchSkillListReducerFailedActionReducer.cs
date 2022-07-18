@@ -15,7 +15,10 @@ namespace Skill.skill.fe.Store.Skills.Reducers.FetchSkills
         state.Skill,
         state.SkillToBeCreatedPayload,
         state.SkillToBeUpdatePayload,
-        state.SkillId
+        state.SkillId,
+        state.CreationStatus,
+        state.ModificationStatus,
+        state.DeletionStatus
         );
     }
   }

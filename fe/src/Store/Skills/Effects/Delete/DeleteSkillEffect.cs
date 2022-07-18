@@ -9,9 +9,9 @@ namespace employee.skill.fe.Store.Skills.Effects.Delete
   public class DeleteSkillEffect : Effect<DeleteSkillAction>
   {
     public ISkillDataService SkillDataService { get; set; }
-    public DeleteSkillEffect(ISkillDataService SkillDataService)
+    public DeleteSkillEffect(ISkillDataService skillDataService)
     {
-      SkillDataService = SkillDataService;
+      SkillDataService = skillDataService;
     }
 
     public override async Task HandleAsync(DeleteSkillAction action, IDispatcher dispatcher)

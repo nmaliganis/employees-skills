@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace employee.skill.fe.Models.DTOs.Employees
 {
@@ -16,5 +18,15 @@ namespace employee.skill.fe.Models.DTOs.Employees
     [DataType(DataType.EmailAddress)]
     [EmailAddress]
     public string Email { get; set; }
+
+    [Required(ErrorMessage = "Skills are Required")]
+    [Editable(true)]
+    public List<Guid> ExistingSkillIds { get; set; } = new List<Guid>();
+    
+    [Editable(true)]
+    public string NonExistingSkill { get; set; }
+
+    [Required(ErrorMessage = "Hired Date is Required")]
+    public DateTime HiredDate { get; set; } = DateTime.Now;
   }
 }

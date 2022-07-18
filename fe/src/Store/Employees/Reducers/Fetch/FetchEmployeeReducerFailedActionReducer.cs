@@ -14,7 +14,10 @@ namespace employee.skill.fe.Store.Employees.Reducers.FetchEmployee
         state.Employee,
         state.EmployeeToBeCreatedPayload,
         state.EmployeeToBeUpdatePayload,
-        state.EmployeeId
+        state.EmployeeId,
+        state.CreationStatus,
+        state.ModificationStatus,
+        state.DeletionStatus
         );
     }
   }

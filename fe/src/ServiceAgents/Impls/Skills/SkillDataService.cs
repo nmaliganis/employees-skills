@@ -134,7 +134,7 @@ namespace employee.skill.fe.ServiceAgents.Impls.Skills
     {
       SkillDto result = new SkillDto();
 
-      var client = new RestClient($"{BaseAddr}/api/Skills");
+      var client = new RestClient($"{BaseAddr}/api/{Version}/skills");
       var request = new RestRequest("", Method.POST);
 
       request.AddJsonBody(SkillToBeCreated);
@@ -159,7 +159,7 @@ namespace employee.skill.fe.ServiceAgents.Impls.Skills
     {
       SkillDto result = new SkillDto();
 
-      var client = new RestClient($"{BaseAddr}/api/Skills/{SkillIdToBeUpdated}");
+      var client = new RestClient($"{BaseAddr}/api/{Version}/skills/{SkillIdToBeUpdated}");
       var request = new RestRequest("", Method.PUT);
 
       request.AddJsonBody(SkillToBeUpdated);
@@ -183,7 +183,7 @@ namespace employee.skill.fe.ServiceAgents.Impls.Skills
     {
       SkillDto result = new SkillDto();
 
-      var client = new RestClient($"{BaseAddr}/api/Skills/{SkillIdToBeDeleted}");
+      var client = new RestClient($"{BaseAddr}/api/{Version}/skills/{SkillIdToBeDeleted}");
       var request = new RestRequest("", Method.DELETE);
 
       request.AddHeader("Content-Type", "application/json");
