@@ -18,7 +18,7 @@ namespace employees.skills.model.Employees
             this.Active = true;
             this.CreatedDate = DateTime.Now;
 
-            this.Skills = new HashSet<EmployeeSkill>();
+            this.Skills = new List<EmployeeSkill>();
         }
 
         public virtual string Firstname { get; set; }
@@ -27,7 +27,7 @@ namespace employees.skills.model.Employees
         public virtual DateTime HiredDate { get; set; }
         public virtual DateTime CreatedDate { get; set; }
         public virtual bool Active { get; set; }
-        public virtual ISet<EmployeeSkill> Skills { get; set; }
+        public virtual IList<EmployeeSkill> Skills { get; set; }
 
         protected override void Validate()
         {
@@ -49,6 +49,12 @@ namespace employees.skills.model.Employees
         public virtual void SoftDeleted()
         {
             this.Active = false;
+        }
+
+        public virtual void UnInjectWithSkill(EmployeeSkill skill)
+        {
+            this.Skills.Remove(skill);
+            skill.Employee = null;
         }
     }
 }

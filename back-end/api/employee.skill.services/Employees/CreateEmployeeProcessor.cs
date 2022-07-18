@@ -85,7 +85,6 @@ namespace employees.skills.services.Employees
                     }
 
                     var employeeSkillToBeInjected = new EmployeeSkill();
-
                     employeeSkillToBeInjected.InjectWithSkill(skillToBeInjected);
                     employeeToBeCreated.InjectWithSkill(employeeSkillToBeInjected);
                 }

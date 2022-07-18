@@ -78,15 +78,14 @@ namespace employees.skills.repository.Mappings.Employees
             
             HasMany<EmployeeSkill>(x => x.Skills)
                 .Access.Property()
-                .AsSet()
-                .Cascade.All()
+                .Cascade.AllDeleteOrphan()
                 .LazyLoad()
                 .Inverse()
                 .Generic()
                 .KeyColumns.Add("employee_id", mapping =>
                     mapping.Name("employee_id")
                         .SqlType("uuid")
-                        .Not.Nullable())
+                        .Nullable())
                 ;
         }
     }

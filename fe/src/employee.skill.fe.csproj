@@ -22,7 +22,7 @@
     <PackageReference Include="Serilog.Sinks.Debug" Version="2.0.0" />
     <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
     <PackageReference Include="System.Text.Json" Version="5.0.2" />
-    <PackageReference Include="Telerik.UI.for.Blazor" Version="2.22.0" />
+    <PackageReference Include="Telerik.UI.for.Blazor" Version="2.27.0" />
     <PackageReference Include="Westwind.AspnetCore.LiveReload" Version="0.3.2" />
   </ItemGroup>
 
